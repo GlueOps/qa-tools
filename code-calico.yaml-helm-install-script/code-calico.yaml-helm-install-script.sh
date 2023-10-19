@@ -26,7 +26,7 @@ render_templates() {
 }
 
 # Call the function with the template and target directories
-render_templates "../qa-tools/code-calico.yaml-script/templates" 
+render_templates "../qa-tools/code-calico.yaml-helm-install-script/templates" 
 
 helm repo add projectcalico https://docs.tigera.io/calico/charts
 helm repo update
