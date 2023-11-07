@@ -26,7 +26,7 @@ render_templates() {
       template_filename=$(basename "$template_file")
 
       # Replace the placeholder with the user-entered value and save it to the target directory
-      sed -e "s/761182885829/$value2/g" -e "s/\.\.\//git::https:\/\/github.com\/GlueOps\/terraform-module-cloud-aws-kubernetes-cluster.git\/g" "$template_file" > "$target_dir/$template_filename"
+      sed -e "s/761182885829/$value2/g" -e "s/\.\.\//git::https:\/\/github.com\/GlueOps\/terraform-module-cloud-aws-kubernetes-cluster.git/g" "$template_file" > "$target_dir/$template_filename"
     fi
   done
 
