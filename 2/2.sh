@@ -85,7 +85,7 @@ render_templates2() {
   echo "calico.yaml is successfully created in $target_dir."
 }
 
-render_templates2 "../../../qa-tools/2/templates2" 
+render_templates2 "../qa-tools/2/templates2" 
 
 # raw_link="https://raw.githubusercontent.com/wiki/GlueOps/terraform-module-cloud-aws-kubernetes-cluster/install-calico.md"
 
