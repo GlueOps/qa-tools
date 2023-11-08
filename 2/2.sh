@@ -10,7 +10,7 @@
 
 # cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks/terraform/kubernetes
 
-read -p "Enter arn:aws:iam number" value2
+# read -p "Enter arn:aws:iam number" value2
 
 # render_templates() {
 #   local template_dir="$1"
@@ -64,36 +64,38 @@ read -p "Enter arn:aws:iam number" value2
 
 # curl https://raw.githubusercontent.com/wiki/GlueOps/terraform-module-cloud-aws-kubernetes-cluster/calico.yaml.md -o ../qa-tools/2/templates2/calico.yaml 
 
-render_templates2() {
-  local template_dir="$1"
-  local target_dir="$PWD"
+# render_templates2() {
+#   local template_dir="$1"
+#   local target_dir="$PWD"
 
-  # Create the target directory if it doesn't exist
-  mkdir -p "$target_dir"
+#   # Create the target directory if it doesn't exist
+#   mkdir -p "$target_dir"
 
-  # Loop through the template files in the template directory
-  for template_file in "$template_dir"/*; do
-    if [ -f "$template_file" ]; then
-      # Extract the filename without the path
-      template_filename=$(basename "$template_file")
+#   # Loop through the template files in the template directory
+#   for template_file in "$template_dir"/*; do
+#     if [ -f "$template_file" ]; then
+#       # Extract the filename without the path
+#       template_filename=$(basename "$template_file")
 
-      # Delete yaml markers
-      sed '/```yaml/,/```/d' "$template_file" > "$target_dir/$template_filename"
-    fi
-  done
+#       # Delete yaml markers
+#       sed '/```yaml/,/```/d' "$template_file" > "$target_dir/$template_filename"
+#     fi
+#   done
 
-  echo "calico.yaml is successfully created in $target_dir."
-}
+#   echo "calico.yaml is successfully created in $target_dir."
+# }
 
-render_templates2 "../qa-tools/2/templates2" 
+# render_templates2 "../qa-tools/2/templates2" 
 
-# raw_link="https://raw.githubusercontent.com/wiki/GlueOps/terraform-module-cloud-aws-kubernetes-cluster/install-calico.md"
+# 3d piece
 
-# commands=$(curl -s "$raw_link")
+raw_link="https://raw.githubusercontent.com/wiki/GlueOps/terraform-module-cloud-aws-kubernetes-cluster/install-calico.md"
 
-# commands=$(echo "$commands" | sed '/```bash/,/```/d') 
+commands=$(curl -s "$raw_link")
 
-# echo=$commands
+commands=$(echo "$commands" | sed '/```bash/,/```/d') 
+
+echo=$commands
 
 # bash -c "$commands"
 
