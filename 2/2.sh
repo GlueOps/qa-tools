@@ -95,7 +95,7 @@ commands=$(curl -s "$raw_link")
 
 commands=$(echo "$commands" | sed '/```bash/,/```/d') 
 
-echo=$commands
+echo "$commands"
 
 # bash -c "$commands"
 
