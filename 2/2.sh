@@ -78,7 +78,7 @@ render_templates2() {
       template_filename=$(basename "$template_file")
 
       # Delete yaml markers
-      sed '/```yaml/,/```/d' "$template_file" > "$target_dir/$template_filename"
+      sed '1d;$d' "$template_file" > "$target_dir/$template_filename"
     fi
   done
 
