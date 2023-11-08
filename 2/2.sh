@@ -10,7 +10,7 @@
 
 # cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks/terraform/kubernetes
 
-# read -p "Enter arn:aws:iam number" value2
+read -p "Enter arn:aws:iam number" value2
 
 # render_templates() {
 #   local template_dir="$1"
