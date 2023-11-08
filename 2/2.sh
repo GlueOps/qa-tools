@@ -93,7 +93,7 @@ raw_link="https://raw.githubusercontent.com/wiki/GlueOps/terraform-module-cloud-
 
 commands=$(curl -s "$raw_link")
 
-commands=$(echo "$commands" | sed '1s/```bash//' | sed '$s/```//') 
+commands=$(echo "$commands" | sed '1s/```bash//; t' | sed '$s/```//') 
 
 echo "$commands"
 
