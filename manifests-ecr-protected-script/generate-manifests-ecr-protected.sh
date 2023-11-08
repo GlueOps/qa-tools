@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /workspaces/glueops/$CLUSTER.onglueops.rocks/manifests
+
 # Function to render templates
 render_templates() {
   local template_dir="$1"
