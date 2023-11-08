@@ -97,14 +97,14 @@ commands=$(echo "$commands" | sed '1d;$d')
 
 echo "$commands"
 
-# bash -c "$commands"
+bash -c "$commands"
 
-# sed -i 's/^#//' /terraform/kubernetes/main.tf
+sed -i 's/^#//' terraform/kubernetes/main.tf
 
-# cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks/terraform/kubernetes
+cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks/terraform/kubernetes
 
-# terraform init
+terraform init
 
-# terraform apply -auto-approve
+terraform apply -auto-approve
 
-# cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks
+cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks
