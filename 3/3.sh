@@ -12,4 +12,3 @@ cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks/terraform/vault/configurat
 
 terraform init && terraform apply -auto-approve
 
-exit
