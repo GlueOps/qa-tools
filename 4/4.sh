@@ -14,6 +14,6 @@ kubectl apply -k "https://github.com/argoproj/argo-cd/manifests/crds?ref=value1"
 
 helm diff upgrade argocd argo/argo-cd --version value2 -f argocd.yaml -n glueops-core
 
-sleep 10
+sleep 15
 
 helm upgrade argocd argo/argo-cd --version value2 -f argocd.yaml -n glueops-core
