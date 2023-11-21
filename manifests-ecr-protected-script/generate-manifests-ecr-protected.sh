@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks/manifests
+cd /workspaces/glueops/$CLUSTER.onglueops.rocks/manifests
 
 # Function to render templates
 render_templates() {
@@ -8,7 +8,7 @@ render_templates() {
   local target_dir="$PWD"
 
   # Prompt the user for the value of the variables
-  read -p "Enter the name of development-captains repo (test-80-np or test-82-np) " value
+  read -p "Enter the name of development-captains repo (test-80-np, test-82-np, test-1-np) " value
 
   read -p "Enter access-key-id for ecr-regcred: " value2
 
