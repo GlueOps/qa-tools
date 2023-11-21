@@ -8,7 +8,7 @@ render_templates() {
   local target_dir="$PWD"
 
   # Prompt the user for the value of the variables
-  read -p "Enter placeholder value (test-80-np, test-82-np, test-1-np) " value
+  read -p "Enter placeholder value (test-80-np, test-82-np or test-1-np) " value
 
   read -p "Enter access-key-id for ecr-regcred: " value2
 
