@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /workspaces/glueops/$CLUSTER.onglueops.rocks/manifests
+cd /workspaces/glueops/$CLUSTER/manifests
 
 # Function to render templates
 render_templates() {
