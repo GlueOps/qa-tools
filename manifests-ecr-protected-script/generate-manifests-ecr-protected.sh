@@ -13,8 +13,17 @@ render_templates() {
 
   IFS='.' read -r ENV TENANT DOMAIN <<< "$CLUSTER"
 
-  # Dcrregcred manifest creating
-  read -p "Do you want to create ecr-regcred.yaml manifest? Type 'yes' or 'no': " process_file
+  unset process_file
+
+  until [ "$process_file" == "yes" ] || [ "$process_file" == "no" ]; do
+    # Ecrregcred manifest creating
+    read -p "Do you want to create ecr-regcred.yaml manifest? Type 'yes' or 'no': " process_file
+
+    # Checking of input
+    if [ "$process_file" != "yes" ] && [ "$process_file" != "no" ]; then
+      echo "Invalid input. Please enter 'yes' or 'no'."
+    fi
+  done
 
   # Define ecrregcred manifest fullname
   REGCRED="ecr-regcred.yaml"
@@ -26,8 +35,17 @@ render_templates() {
     read -p "Enter secret-access-key: " value3
   fi
 
-  # Organization and repository path
-  read -p "Do you use default organization(example-tenant) and repository(deployment-configurations)? Type 'yes' or 'no': " use_default
+  unset use_default
+  
+  until [ "$use_default" == "yes" ] || [ "$use_default" == "no" ]; do
+    # Organization and repository path
+    read -p "Do you use default organization(example-tenant) and repository(deployment-configurations)? Type 'yes' or 'no': " use_default
+
+    # Checking of input
+    if [ "$use_default" != "yes" ] && [ "$use_default" != "no" ]; then
+      echo "Invalid input. Please enter 'yes' or 'no'."
+    fi
+  done
   
   if [ "$use_default" == yes ]; then
     org_name="example-tenant"
