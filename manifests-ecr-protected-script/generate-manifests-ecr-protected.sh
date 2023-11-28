@@ -35,23 +35,38 @@ render_templates() {
     read -p "Enter secret-access-key: " value3
   fi
 
-  unset use_default
+  unset use_defaultorg
+  unset use_defaultrepo
   
-  until [ "$use_default" == "yes" ] || [ "$use_default" == "no" ]; do
-    # Organization and repository path
-    read -p "Do you use default organization(example-tenant) and repository(deployment-configurations)? Type 'yes' or 'no': " use_default
+  until [ "$use_defaultorg" == "yes" ] || [ "$use_defaultorg" == "no" ]; do
+    # Organization path
+    read -p "Do you use default organization(example-tenant)? Type 'yes' or 'no': " use_defaultorg
 
     # Checking of input
-    if [ "$use_default" != "yes" ] && [ "$use_default" != "no" ]; then
+    if [ "$use_defaultorg" != "yes" ] && [ "$use_defaultorg" != "no" ]; then
       echo "Invalid input. Please enter 'yes' or 'no'."
     fi
   done
   
-  if [ "$use_default" == yes ]; then
+  if [ "$use_defaultorg" == yes ]; then
     org_name="example-tenant"
-    repo_name="deployment-configurations"
   else
     read -p "Enter organization name: " org_name
+  fi
+
+  until [ "$use_defaultrepo" == "yes" ] || [ "$use_defaultrepo" == "no" ]; do
+    # Repository path
+    read -p "Do you use default repository (deployment-configurations)? Type 'yes' or 'no': " use_defaultrepo
+
+    # Checking of input
+    if [ "$use_defaultrepo" != "yes" ] && [ "$use_defaultrepo" != "no" ]; then
+      echo "Invalid input. Please enter 'yes' or 'no'."
+    fi
+  done
+
+  if [ "$use_defaultrepo" == yes ]; then
+    repo_name="deployment-configurations"
+  else
     read -p "Enter repository name: " repo_name
   fi
 
