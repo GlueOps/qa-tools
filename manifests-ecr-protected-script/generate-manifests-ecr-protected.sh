@@ -13,6 +13,25 @@ render_templates() {
 
   IFS='.' read -r ENV TENANT DOMAIN <<< "$CLUSTER"
 
+  unset process_webacl
+  
+  until [ "$process_webacl" == "yes" ] || [ "$process_webacl" == "no" ]; do
+    # Webacl manifest creating
+    read -p "Do you want to create webacl.yaml manifest? Type 'yes' or 'no': " process_webacl
+
+    # Checking of input
+    if [ "$process_webacl" != "yes" ] && [ "$process_webacl" != "no" ]; then
+      echo "Invalid input. Please enter 'yes' or 'no'."
+    fi
+  done
+
+  # Define webacl manifest fullname
+  WEBACL="webacl.yaml"
+
+  if [ "$process_webacl" == no ]; then
+  echo "File processing skipped for $WEBACL."
+  fi
+
   unset process_file
 
   until [ "$process_file" == "yes" ] || [ "$process_file" == "no" ]; do
@@ -80,8 +99,10 @@ render_templates() {
       template_filename=$(basename "$template_file")
 
       # Replace the placeholder with the user-entered value and save it to the target directory
-      if [ "$process_file" == yes ] || [ "$template_filename" != "$REGCRED" ]; then
+      if  [ "$process_file" == yes ] || [ "$template_filename" != "$REGCRED" ]; then
+        if [ "$process_webacl" == yes ] || [ "$template_filename" != "$WEBACL" ]; then
         sed "s/cluster_env/$ENV/g; s/key_id/$value2/g; s/key_value/$value3/g; s/example-tenant/$org_name/g; s/deployment-configurations/$repo_name/g" "$template_file" > "$target_dir/$template_filename"
+        fi
       fi
     fi
   done
