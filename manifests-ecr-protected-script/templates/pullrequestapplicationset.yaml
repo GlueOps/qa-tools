@@ -64,7 +64,7 @@ spec:
                 entries:
                   - name: public
                     hosts:
-                    - hostname: '{{ .head_short_sha }}-{{ .repository | replace "." "-"  | replace "_" "-" }}.apps.cluster_env.pluto.onglueops.rocks'
+                    - hostname: '{{ .head_short_sha }}-{{ .repository | replace "." "-"  | replace "_" "-" }}.apps.$CLUSTER'
 
         - repoURL: https://github.com/example-tenant/{{ .repository }}
           targetRevision: '{{ .head_sha }}'
