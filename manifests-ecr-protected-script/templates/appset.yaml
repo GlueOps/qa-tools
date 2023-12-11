@@ -37,7 +37,7 @@ spec:
           - '$values/apps/{{ index .path.segments 1 }}/base/base-values.yaml'
           - '$values/{{ .path.path }}/values.yaml'
           values: |-
-            captain_domain: cluster_env.pluto.onglueops.rocks
+            captain_domain: $CLUSTER
             appName: '{{ index .path.segments 1 | replace "." "-"  | replace "_" "-" }}-{{ .path.basenameNormalized }}'
 
         repoURL: https://helm.gpkg.io/project-template
