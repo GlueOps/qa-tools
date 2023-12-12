@@ -64,7 +64,7 @@ spec:
                 entries:
                   - name: public
                     hosts:
-                    - hostname: '{{ .head_short_sha }}-{{ .repository | replace "." "-"  | replace "_" "-" }}.apps.$CLUSTER'
+                    - hostname: '{{ .head_short_sha }}-{{ .repository | replace "." "-"  | replace "_" "-" }}.apps.CLUSTER_VARIABLE'
 
         - repoURL: https://github.com/example-tenant/{{ .repository }}
           targetRevision: '{{ .head_sha }}'

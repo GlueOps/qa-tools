@@ -101,7 +101,7 @@ render_templates() {
       # Replace the placeholder with the user-entered value and save it to the target directory
       if  [ "$process_file" == yes ] || [ "$template_filename" != "$REGCRED" ]; then
         if [ "$process_webacl" == yes ] || [ "$template_filename" != "$WEBACL" ]; then
-        sed "s/cluster_env/$ENV/g; s/key_id/$value2/g; s/key_value/$value3/g; s/example-tenant/$org_name/g; s/deployment-configurations/$repo_name/g" "$template_file" > "$target_dir/$template_filename"
+        sed "s/cluster_env/$ENV/g; s/CLUSTER_VARIABLE/$CLUSTER/g; s/key_id/$value2/g; s/key_value/$value3/g; s/example-tenant/$org_name/g; s/deployment-configurations/$repo_name/g" "$template_file" > "$target_dir/$template_filename"
         fi
       fi
     fi
