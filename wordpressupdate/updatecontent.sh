@@ -21,7 +21,7 @@ git commit -m "Update index.html"
 git push --set-upstream origin $NEW_BRANCH
 
 # Creating a Pull Request through GitHub CLI and getting the URL
-PR_URL=$(gh pr create --title "Update text in index.html" --base main --head $NEW_BRANCH)
+PR_URL=$(gh pr create --title "Update text in index.html" --body "QA step" --base main --head $NEW_BRANCH)
 
 # Outputting the Pull Request URL
 echo "Follow next link to check PR bot: $PR_URL"
