@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /workspaces/glueops
+
 # Repository and branch parameters
 NEW_BRANCH="AntonBilyk-patch-1"
 FILE_PATH="index.html" # Change the file path if necessary
