@@ -2,6 +2,10 @@
 
 # 1st piece
 
+mkdir -p qa-tools/2/templates
+
+mkdir -p qa-tools/2/templates2
+
 curl https://raw.githubusercontent.com/GlueOps/terraform-module-cloud-aws-kubernetes-cluster/main/tests/main.tf -o qa-tools/2/templates/main.tf 
 
 cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks
