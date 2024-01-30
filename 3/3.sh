@@ -12,3 +12,5 @@ cd /workspaces/glueops/$CLUSTER.pluto.onglueops.rocks/terraform/vault/configurat
 
 terraform init && terraform apply -auto-approve
 
+pkill -f "kubectl -n glueops-core-vault port-forward"
+
