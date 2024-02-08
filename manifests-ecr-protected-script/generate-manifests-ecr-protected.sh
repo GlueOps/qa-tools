@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Enter your cluster name: " CLUSTER
+read -p "Enter your captain domain: " CLUSTER
 
 cd /workspaces/glueops/$CLUSTER/manifests
 
