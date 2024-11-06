@@ -21,7 +21,7 @@ spec:
           github:
             owner: example-tenant
             appSecretName: tenant-repo-creds
-            repo: '{{ .repository }}'
+            repo: '{{ .repository | lower }}'
           requeueAfterSeconds: 30
   template:
     metadata:
@@ -29,7 +29,7 @@ spec:
       namespace: cluster_env
       annotations:
         repository_organization: "example-tenant"
-        repository_name: '{{ .repository }}'
+        repository_name: '{{ .repository | lower }}'
         preview_environment: 'true'
         pull_request_number: '{{.number}}'
         branch: '{{.branch}}'
@@ -50,9 +50,9 @@ spec:
             valueFiles:
             - '$configValues/common/common-values.yaml'
             - '$configValues/env-overlays/cluster_env/env-values.yaml'
-            - '$configValues/apps/{{ .repository }}/base/base-values.yaml'
-            - '$configValues/apps/{{ .repository }}/envs/previews/common/values.yaml'
-            - '$configValues/apps/{{ .repository }}/envs/previews/pull-request-number/{{ .number }}/values.yaml'
+            - '$configValues/apps/{{ .repository | lower }}/base/base-values.yaml'
+            - '$configValues/apps/{{ .repository | lower }}/envs/previews/common/values.yaml'
+            - '$configValues/apps/{{ .repository | lower }}/envs/previews/pull-request-number/{{ .number }}/values.yaml'
             values: |-
               appName: '{{ .branch_slug }}-{{ .repository | replace "." "-"  | replace "_" "-" | lower }}'
               image:
@@ -66,7 +66,7 @@ spec:
                     hosts:
                     - hostname: '{{ .head_short_sha }}-{{ .repository | replace "." "-"  | replace "_" "-" | lower }}.apps.CLUSTER_VARIABLE'
 
-        - repoURL: https://github.com/example-tenant/{{ .repository }}
+        - repoURL: https://github.com/example-tenant/{{ .repository | lower }}
           targetRevision: '{{ .head_sha }}'
           ref: values
         - repoURL: https://github.com/example-tenant/deployment-configurations
