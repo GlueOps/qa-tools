@@ -25,7 +25,7 @@ spec:
           requeueAfterSeconds: 30
   template:
     metadata:
-      name: '{{ .branch_slug }}-{{ .repository | replace "." "-"  | replace "_" "-" }}'
+      name: '{{ .branch_slug }}-{{ .repository | replace "." "-"  | replace "_" "-" | lower }}'
       namespace: cluster_env
       annotations:
         repository_organization: "example-tenant"
@@ -54,7 +54,7 @@ spec:
             - '$configValues/apps/{{ .repository }}/envs/previews/common/values.yaml'
             - '$configValues/apps/{{ .repository }}/envs/previews/pull-request-number/{{ .number }}/values.yaml'
             values: |-
-              appName: '{{ .branch_slug }}-{{ .repository | replace "." "-"  | replace "_" "-" }}'
+              appName: '{{ .branch_slug }}-{{ .repository | replace "." "-"  | replace "_" "-" | lower }}'
               image:
                 tag: '{{.head_sha}}'
 
@@ -64,7 +64,7 @@ spec:
                 entries:
                   - name: public
                     hosts:
-                    - hostname: '{{ .head_short_sha }}-{{ .repository | replace "." "-"  | replace "_" "-" }}.apps.CLUSTER_VARIABLE'
+                    - hostname: '{{ .head_short_sha }}-{{ .repository | replace "." "-"  | replace "_" "-" | lower }}.apps.CLUSTER_VARIABLE'
 
         - repoURL: https://github.com/example-tenant/{{ .repository }}
           targetRevision: '{{ .head_sha }}'
