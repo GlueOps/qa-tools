@@ -23,7 +23,7 @@ spec:
   source:
     chart: app
     repoURL: https://helm.gpkg.io/project-template
-    targetRevision: 0.9.0
+    targetRevision: 0.11.0
     helm:
       values: |+
 

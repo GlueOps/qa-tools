@@ -44,7 +44,7 @@ spec:
       sources:
         - repoURL: https://helm.gpkg.io/project-template
           chart: app
-          targetRevision: 0.9.0
+          targetRevision: 0.11.0
           helm:
             ignoreMissingValueFiles: true
             valueFiles:
